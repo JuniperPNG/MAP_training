@@ -1,0 +1,76 @@
+---
+title: "Informational Interview with Dr.Yeromin Mlacha"
+author: "Phoibe Keu"
+date: "2025-05-08"
+output: html_document
+---
+
+# Informational Interview with Dr.Yeromin Mlacha
+
+::: {style="float:right; margin-left: 10px;"}
+![Dr.Yeromin Mlacha](https://ihi.or.tz/media/18_qSg3QQy.png)(width=150)
+
+**Introduction**
+
+In this informational interview, I had an opportunity to speak with Dr. Yeromin Mlacha, an inspiring vector biologist whose work has made a major impact in the fight against malaria. He holds a PhD and has been deeply involved in research focused on mosquito behavior and the effectiveness of different malaria interventions, particularly bed nets. Dr. Mlacha also explores the ethical aspects of these tools and supports the National Malaria Control Program by studying how mosquitoes respond to insecticides used in bed nets and indoor spraying. His commitment to improving public health in Tanzania has been a great source of inspiration for many emerging data scientists.
+
+## Background and Motivation
+
+**Can you tell me what initially led you to study Biology vectors,especially Malaria vectors,and what continues to drive your interest today?**
+
+Dr. Mlacha shared that his passion for science began back in secondary school, where he chose to study Physics, Chemistry, and Biology with the dream of becoming a medical doctor. He later joined Muhimbili University, but along the way, he developed a strong interest in parasitology and entomology, that is, the study of parasites and insects. This interest led him to learn more about disease-carrying vectors like mosquitoes.
+
+In 2009, he joined the Ifakara Health Institute(IHI), where he gained deeper knowledge in entomology, especially focusing on different mosquito species. His academic journey continued with a Master’s degree in 2012 in the Biology of Parasites and Disease Vectors, and later, a PhD in Epidemiology in 2017..
+
+**Looking back over 15 years career,what key experiences or milestones have shaped your understanding of mosquito ecology and malaria transmission?**
+
+He explained that his time at the Ifakara Health Institute (IHI) was a turning point in his career. It was there that he gained a broader understanding of his field. According to him, IHI creates an environment that encourages innovation and exploration, allowing everyone to contribute meaningfully to various projects. He’s been with IHI for nearly 17 years and has never felt the need to move elsewhere, as the institute continues to grow and evolve. Working closely with experienced senior researchers has also played a big role in his professional development.
+
+## Vector Ecology and Behavior
+
+**How would you describe the current distribution and behavior of major malaria vectors like "Anopheles gambiae" and "Anopheles funestus" in Tanzania?**
+
+Dr. Mlacha explained that "Anopheles gambiae" is a complex mosquito species with around eight different sub-species, each behaving differently across sub-Saharan Africa. In some areas, the widespread use of bed nets has even disrupted the life cycle of certain Anopheles species, making it harder for them to sustain their populations.
+
+He also highlighted "Anopheles funestus" as one of the most efficient malaria-transmitting species. This mosquito prefers feeding on humans, is highly resistant to control measures, and can survive through both rainy and dry seasons. According to different scientific literatures, in regions where both "Anopheles gambiae" and "Anopheles funestus" are found, they tend to alternate in dominance—"Anopheles gambiae" is more active during the rainy season, while "Anopheles funestus" takes over in the dry season.
+
+**In your experience,how have environmental changes,such as urbanization or deforestation affected mosquito breeding patterns and malaria transmission dynamics**
+
+Dr. Mlacha emphasized that this is a complex topic, but he offered a clear summary. He explained that urbanization tends to reduce malaria transmission because environmental changes—such as the construction of houses—disrupt mosquito breeding habitats. As cities grow and populations increase, malaria risk generally goes down in urban areas.
+
+However, he also pointed out some challenges. For example, in cities, people often store water in tanks for household use, which can unintentionally create breeding grounds for mosquitoes. So while urbanization can help reduce malaria, it also introduces new risks. Overall, changes in the environment both in urban and rural settings affect mosquito behavior and malaria transmission in different ways.
+
+**What do we now understand better about mosquito host-seeking behavior that could help improve vector control strategies**
+
+He acknowledged that this topic can seem contradictory, especially when considering different research findings. For example, some studies suggest that treating cows with insecticides can help reduce mosquito populations. However, other findings show that keeping cows close to your home can actually attract more mosquitoes. He explained that mosquitoes’ host-seeking behavior—how they find and choose what to bite—varies depending on whether they are in rural or urban areas, which also affects how diseases are transmitted.
+
+## Vector Control Approaches
+
+**Which Malaria vector control methods have you found most effective in Tanzanian contexts,and why?**
+
+He shared that many studies show malaria has been reduced by about 50%, thanks to a range of interventions like indoor spraying, insecticide-treated bed nets, antimalarial drugs like ALU, and the availability of rapid diagnostic tests (MRDTs). Among all these, insecticide-treated bed nets have had the biggest impact—reducing malaria transmission by up to 69%. In simple terms, he said that bed nets have played the most significant role in cutting down malaria cases on a large scale
+
+**How has insecticides resistance evolved in Tanzania's malaria vectors,and how are you or your teams addressing this challenge?**
+
+He explained that the development of resistance in mosquitoes is a long-standing and ongoing process. Since 1999, scientists have been monitoring mosquito resistance every year to see how they respond to insecticides. Over time, patterns of resistance begin to appear, which often leads to changes in the medicines or insecticides being used. This happens because mosquitoes constantly evolve and adapt.
+
+He also pointed out that the insecticides used in bed nets are the same types used in agriculture. As a result, the frequent and widespread use of these chemicals puts extra pressure on mosquitoes, making it easier for them to develop resistance over time.
+
+## Impactful publications
+
+**Can you tell me about some of your impactful publications?**
+
+Dr.Mlacha pointed out several important publications that have shaped the field.
+
+1.<https://www.sciencedirect.com/science/article/pii/S254251961930035X> 2.<https://link.springer.com/article/10.1186/s12936-020-03363-w> 3.<https://pubmed.ncbi.nlm.nih.gov/33218346/>
+
+## Reflections and Future Directions
+
+**What major gaps or unanswered questions still exist in malaria vector biology that you believe need urgent attention?**
+
+Dr.Mlacha explained that there's still a lot of things that we need to learn about including,the different sizes and types of mosquitoes. Right now, we don't have the molecular tools needed to accurately identify them, so there's still a gap in our understanding—especially since different species behave differently. Understanding the genetic variations of mosquitoes across different regions would help us design better interventions. He also emphasized the need to improve the pesticides we use, though limited resources make it difficult to carry out regular monitoring.
+
+**What advice would you give to young Tanzanian scientists who wants to pursue a career in vector biology and malaria control?**
+
+Dr.Mlacha advise to scientists who want to pursue related career that,they need to be flexible,willing to learn from experienced people,be adoptive and willing to listen.
+:::
