@@ -1,0 +1,72 @@
+---
+title: "Malaria Intervies"
+author: "Allan Mayaba Mwiinde"
+date: "2025-06-17"
+output: html_document
+---
+#Information Interview with Dr Stephanie van wyk
+![Mayaba Allan Mwiinde]("C:/Users/HP-ENVY/Pictures/Microsoft.Windows.Photos_8wekyb3d8bbwe!App/Image.JPG")
+22nd September, 2025, Zoom Meeting from 11:00 hours to 12: Hours. 
+Allan Mayaba Mwiinde1 and Dr Stephanie Van Wyk2 
+1.	University of Zambia Department of Bio statistics and Epidemiology 
+2.	University of Cape Town, Department of Health Sciences 
+Background
+In this information interview I had an opportunity to speak to Dr Stephanie who has significantly contributed to malaria research in in the Southern Africa Development Community and currently working on malaria resistance research in Eastern and Southern African countries. 
+Please, would you take me down your professional career 
+Studied an Undergraduate Degree at the University of Pretoria in microbiology, then proceeded with a Honors Degree in Bioinformatics—Master's Degree in Genomics (Phenotype and Genotype). 
+With the focus on examining fungal pathogens that can grow in hot temperatures, this was related to climate change.
+At the PhD level, the focus was on Bioinformatics, examining bioinformatics tools in the study of host and pathogens. During the COVID-19 Outbreak, I moved to Stellenbosch University's Centre for Epidemic Innovation. This was due to the scarcity of bioinformaticians in South Africa. Being part of the scientific team that discovered the omicron virus lineage of COVID-19 and the BA sublineage of the omicron 1415 sub-group analysis. Part of this work was published in Nature, Science, and Nature Medicine. I have focused on Angola and Mozambique, looking at the Epidemiology of COVID-19 by 2023. I have also worked under the BRECs on the Pathogen, focusing on genomic sequencing and epidemiology to inform the public health response. 
+I moved on to the University of Cape Town, focusing on the Mitigating Antimalarial Resistance Consortium in Southern and East Africa (MARC SE-Africa). Here, we utilise genetic data at the country level, focusing on Malaria resistance to pharmaceutical drugs, as well as evaluating the available policies in the cross-border region. We have created a dashboard for understanding therapeutic information, which we have mapped for epidemiological analysis. We are currently working with different partners, such as the WHO, and are able to respond to Malaria resistance in the use of the available technology. 
+With the Current Changes considering the Global Dynamics in terms of funding which is highly dependent on the USA where do we see the fight against malaria in the next five years.
+That's a critical question; at the same time, it is complex. With a loss of funding, which is devastating, we may expect a drastic rise in the number of malaria cases. We expect a collaborative response from the laboratory, policy and epidemiology to have a strong unified response against malaria in Southern Africa, East Africa and other Western African countries. This should target hot sport areas. 
+Is it too late to have these collaborative efforts among African Countries?
+It is true in a way, but also not true; the resistance has just emerged right now. At that time countries has specific budgets based on the donor. Africa was excluded in the eradication against malaria in the 1950s based on the method of eradication such as the use of pest cides such as DDT which can not be used in Africa and while others used these same pest cides which were legal at that time to bring malaria under control therefore Africa can not use any of these strategy that were used before. Furthermore, we must look at issues of colonisation, which took away the resources from Africa, therefore making the Global North responsible for continuing to provide funding for African countries. 
+Working with SADIC and Est Africa, to what extent do we collaborate among these regions 
+There are strong responses in the fight against malaria, the renewed funding in SADIC towards elimination, and the 8th movement can not be overlooked. The SADIC work is ongoing, and it is on the table of negotiation, which can not be divulged for public consumption; however, there are many efforts at the SADIC level to ensure that there are efforts among member countries. However, Botswana and Zimbabwe had little oversight on these matters. However, the ongoing politics in the USA have influence.
+What is the Public Health Sustainable Prevention of Malaria in sub-Saharan Africa?
+For sustainable prevention, we need coordinated case management and vector control management, along with active surveillance, including the detection of resistance. We also need to ensure that we have non-diagnostic resistance to contribute to case management. 
+Who is the beneficially of the data on Malaria resistance 
+At the regional level, the benefits of the data generated on malaria resistance go beyond the SADIC and East Africa region to country-level and individual-level benefits. Due to movements of the people within the area, the local levels of local authorities will also benefit at the local level. Therefore, the beneficiaries would be at the regional, National, Sub-national and Local levels. The pharmaceutical companies have used the combined evolutionary medication that would develop resistance among pathogens. I do not believe that the pharmaceutical companies get a lot of money compared to other treatments, such as cancer. In malaria treatment, they have costs such as funding research for malaria; however, not all diseases. The resistant pathogens will prevent the pharmaceutical from losing out on the drugs. The good point is that we need collaboration from academia, microbiologists, pharmacologists, policy makers, and others to effectively eliminate malaria. 
+What are the Challenges you have faced in Malaria Research working in SADIC
+The challenges faced are that the people who are highly affected are not provided the opportunity to speak. The person who should speak must be the representative of the community. The needs of the people must outweigh the needs of academia. For example, if I am from southern Africa, and I go to East Africa, I should be able to help with the data and analysis; however, the person who speaks must be the one who represents that region, someone who is not part of the community should just support. Even when you needed to be academically competitive, we need to place community needs. 
+Botswana and Zimbabwe have inadequate data for molecular surveillance; therefore, implementing action changes is a challenge in the region. This creates a blind spot in the region. We need to share information once it is generated and should be weighed against the public's needs. The issue of expertise remains a challenge in SADIC, and there is a low level of political will, to some extent. There is a need for a lot more focus, and people with the skills are expected to be lost due to funding challenges. 
+
+How do we enhance open data sources in the SADIC region
+In the past, SADIC's sharing of data was slow; however, currently, there is a great improvement following the 8th elimination agenda. The turnaround time has greatly improved following the COVID-19 pandemic, which also enhanced collaboration. Should SADIC work so closely as it is happening, there will be a strong change towards elimination. 
+What are some of the lost opportunities that should have been done in SADIC to move towards elimination?
+Part of the key issues is funding and prioritisation when malaria efforts are gaining momentum, such as vector control funding being withdrawn for other diseases, creating a gap. There is a need to ensure that we engage the communities to have accountability. We need to improve the working relationship among countries and take care of the vulnerable population, such as children, pregnant women and the migrant population. In war-torn countries, the migrant population would cause resistance as they seek refuge from their home countries. Political instability also weakens the fight against malaria, with poor health-seeking behaviour, for example, as people from the Congo DRC move to other regions.
+Some of them have the following title: “The MARC SE-Africa Dashboard: Joining Forces to Counteract Emerging Antimalarial Resistance in South and East Africa” [medrix] (https://www.medrxiv.org/content/10.1101/2025.01.07.25320158v1). 
+Do you have training opportunities available for malaria training 
+We have created a WhatsApp group where we share malaria data with several links [orthosurgeon]
+(https://www.orthosurgeon.msf.org/en/job/microbiology-mobile-implementation-officer)
+[mesamalaria.org] (https://mesamalaria.org/resource-hub/from-data-to-insight-a-practical-introduction-to-interpreting-malaria-genetics-for-surveillance/)
+[research] (https://www.researchgate.net/publication/391861332_Slowing_the_spread_of_treatment_failure_to_artemisinin-based_combination_therapies_in_Uganda), [opportunitiesforyouth.org] (https://opportunitiesforyouth.org/2025/06/13/african-stars-msc-fellowship-2026-fully-funded-opportunity-for-african-students-in-bioinformatics-and-infectious-diseases/)
+The whatsapp group aims to equip malaria authors with knowledge in malaria writing up manuscript or research
+As a malaria authors collective administrator, inspiring others, what advice could you offer to the Malaria young researchers? 
+You need strong collaboration at different levels so that we can combine forces and improve networking through effective data visualisation, pre-print publishing, and community engagement. There is also a need to resolve the funding issues in our respective countries. 
+Thank you for your time and support. 
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
