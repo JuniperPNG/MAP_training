@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="generator" content="pandoc"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+        <title> Introduction to Spatial Analysis for Infectious Diseases</title>
+        <script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+        <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet"/>
+        <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+        <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+        <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+        <style>h1 { font-size: 34px; } h1.title { font-size: 38px; } h { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } code { color: inherit; background-color: rgba(0, 0, 0, 0.04); } pre:not([class]) { background-color: white; }</style>
+        <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+        <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet"/>
+        <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+        <script src="site_libs/navigation-1.1/tabsets.js"></script>
+        <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet"/>
+        <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+        <style type="text/css">code { white-space: pre-wrap; } span.smallcaps { font-variant: small-caps; } span.underline { text-decoration: underline; } div.column { display: inline-block; vertical-align: top; width: 50%; } div.hanging-indent { margin-left: 1.5em; text-indent: -1.5em; } ul.task-list { list-style: none; }</style>
+        <style type="text/css">code { white-space: pre; }</style>
+        <script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <style type="text/css">.main-container { max-width: 940px; margin-left: auto; margin-right: auto; } img { max-width: 100%; } .tabbed-pane { padding-top: 12px; } .html-widget { margin-bottom: 20px; } button.code-folding-btn:focus { outline: none; } summary { display: list-item; } details > summary > p:only-child { display: inline; } pre code { padding: 0; }</style>
+        <style type="text/css">.dropdown-submenu { position: relative; } .dropdown-submenu>.dropdown-menu { top: 0; left: 100%; margin-top: -6px; margin-left: -1px; border-radius: 0 6px 6px 6px; } .dropdown-submenu:hover>.dropdown-menu { display: block; } .dropdown-submenu>a:after { display: block; content: " "; float: right; width: 0; height: 0; border-color: transparent; border-style: solid; border-width: 5px 0 5px 5px; border-left-color: #cccccc; margin-top: 5px; margin-right: -10px; } .dropdown-submenu:hover>a:after { border-left-color: #adb5bd; } .dropdown-submenu.pull-left { float: none; } .dropdown-submenu.pull-left>.dropdown-menu { left: -100%; margin-left: 10px; border-radius: 6px 0 6px 6px; }</style>
+        <script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+        </script>
+        <!-- tabsets -->
+        <style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.tabset-dropdown > .nav-tabs > li.active:before,
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+        </style>
+        <!-- code folding -->
+        <style>
+#TOC { margin: 25px 0px 20px 0px; }
+@media (max-width: 768px) {
+  #TOC {
+    position: relative;
+    width: 100%;
+  }
+}
+@media print {
+  .toc-content {
+    /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+    float: right;
+  }
+}
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+div.main-container {
+  max-width: 1200px;
+}
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid main-container">
+            <!-- setup 3col/9col grid for toc_float and main content  -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div id="TOC" class="tocify">
+                    </div>
+                </div>
+                <div class="toc-content col-xs-12 col-sm-8 col-md-9">
+                    <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="index.html">Intro</a>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="01_datamanagement.html">Data management and data wrangling in Excel</a>
+                                    </li>
+                                    <li>
+                                        <a href="07_malariaepi.html">Malaria epi overview</a>
+                                    </li>
+                                    <li>
+                                        <a href="02_datahandling.html">Data wrangling in R</a>
+                                    </li>
+                                    <li>
+                                        <a href="08_Git.html">Bash and Git</a>
+                                    </li>
+                                    <li>
+                                        <a href="09_Data_vis.html">Data visualisation in R</a>
+                                    </li>
+                                    <li>
+                                        <a href="10_Comms.html">Comms: writing and presenting</a>
+                                    </li>
+                                    <li>
+                                        <a href="04_spatial_in_R.html">Spatial Data in R</a>
+                                    </li>
+                                    <li>
+                                        <a href="03_QGIS.html">QGIS</a>
+                                    </li>
+                                    <li>
+                                        <a href="05_Intro_to_INLA.html">Introduction to R-INLA</a>
+                                    </li>
+                                    <li><a href="06_Assignments.html">Assignments</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                </ul>
+                            </div>
+                            <!--/.nav-collapse -->
+                        </div>
+                        <!--/.container -->
+                    </div>
+                    <!--/.navbar -->
+
+                    <!-- BEGIN MODULE CONTENT -->
+
+<h1>Leadership, decision-making &amp; working with others </h1>
+
+<!-- 1. What is leadership? -->
+<h2 id="what-is-leadership">1&nbsp;|&nbsp;What Is Leadership?</h2>
+
+<p>
+  Leadership is often confused with hierarchy.  
+  In reality it is <em>a verb</em>: the deliberate behaviours that mobilise
+  people and resources toward a meaningful goal – <strong>with</strong> them,
+  not merely <strong>through</strong> them.
+</p>
+<blockquote>
+  “The ultimate test of leadership is this: <br>
+  <em>Do the people around me grow because of my influence?</em>”
+  <br>&nbsp;– Max De Pree
+</blockquote>
+
+<p>
+  Our cohort organised and facilitated a Leadership Roundtable session, where our esteemed panellists shared their career journeys, experiences, and reflections on why they do what they do:
+</p>
+
+<ul>
+  <li><strong>Dr&nbsp;Manuela&nbsp;Runge</strong>&nbsp;&mdash; Infectious-disease modeller, MM&nbsp;Global&nbsp;Health&nbsp;Consulting</li>
+  <li><strong>Dr&nbsp;Stephanie&nbsp;van&nbsp;Wyk</strong>&nbsp;&mdash; Senior Lecturer, University&nbsp;of&nbsp;Cape&nbsp;Town</li>
+  <li><strong>Dr&nbsp;Julian&nbsp;Heng</strong>&nbsp;&mdash; Program Manager, Global Disease Modelling, The&nbsp;Kids&nbsp;Research&nbsp;Institute&nbsp;Australia</li>
+  <li><strong>Tolu&nbsp;Okitika</strong>&nbsp;&mdash; former Senior Program Manager, Malaria&nbsp;Atlas&nbsp;Project</li>
+</ul>
+
+<p>The panellists agreed on three universal dimensions:</p>
+
+<ul>
+  <li><strong>Impact</strong> – the tangible and felt outcomes of your actions.</li>
+  <li><strong>Reflection</strong> – a habit of examining motives, strengths and blind-spots.</li>
+  <li><strong>Context</strong> – the ability to adapt style to culture, task and power dynamics.</li>
+</ul>
+
+<!-- Embedded YouTube Video with Intro Text -->
+<div class="video-section">
+  <p><strong>Watch the recording from this session (30 June 2025):
+    <a href="https://drive.google.com/drive/folders/1Yx6QgCLxfe6droEkyCVpEW9dVWmEYT-k?usp=sharing" target="_blank">Google Drive</a>.</strong>
+  </p>
+
+  <!-- Responsive YouTube Video Embed -->
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe
+      src="https://www.youtube.com/embed/fiT2LbRwpUQ"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+    </iframe>
+  </div>
+</div><!-- /video-section -->
+
+<details>
+  <summary><strong>✨ Reflection: “My Invisible Impact”</strong></summary>
+  <ol>
+    <li>Write down one moment this week where <em>your mood</em> affected somebody else’s energy – positively or negatively.</li>
+    <li>What signal did you send without words?  How could you shift that signal next time?</li>
+  </ol>
+</details>
+
+<!-- 2. Leadership styles + Mentimeter -->
+<h2 id="styles">2&nbsp;|&nbsp;Leadership Styles &amp; Skills &amp; Self-Reflection</h2>
+
+<p>No single style fits every problem. It is hard to teach leadership - it has to be very intentional and self-reflective. 
+  Below is a quick cheat-sheet we used about different leadership theories:</p>
+
+<p style="text-align:center">
+  <img src="images/11_Leadership/Leadership1.PNG"
+       alt="Table of leadership theories" width="95%">
+</p>
+
+  In a live Mentimeter poll our cohort self-reflected on how we define good leaders, where we want to get to, and what skills we need to develop/improve to be good leaders.
+  Hover or click below to explore:
+</p>
+
+<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/al3auzz4uidsfbgetmnp7sr7pqrukao1/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
+
+<details>
+  <summary><strong>✨ Reflection: “Stretch-Shift-Sustain”</strong></summary>
+  <p>Pick <em>one</em> behaviour you want to:</p>
+  <ul>
+    <li><strong>Stretch</strong> – new territory that scares/excites you</li>
+    <li><strong>Shift</strong> – something to dial <em>down</em>
+        because it no longer serves the team</li>
+    <li><strong>Sustain</strong> – a signature strength to keep polishing</li>
+  </ul>
+</details>
+
+<p style="text-align:center">
+  <img src="images/11_Leadership/Leadership8.PNG"
+       alt="Table of leadership theories" width="95%">
+</p>
+<!-- 3. Leadership in malaria context -->
+<h2 id="malaria-context">3&nbsp;|&nbsp;Leadership in Malaria – African Lens</h2>
+
+<p>
+  Who shapes the research questions, controls the money, and tells the
+  malaria story?  A recent commentary
+  (<em><a href="https://www.ajol.info/index.php/ahs/article/view/238966" target="_blank">
+A world free of malaria: It is time for Africa to actively champion&nbsp;…</a></em>)
+  challenges African scientists to step forward as <strong>agenda setters</strong>.
+</p>
+
+<p style="text-align:center"><img src="images/11_Leadership/Leadership3.PNG" width="90%"></p>
+
+<p>
+  Funding patterns show stark asymmetry – a few countries attract most
+  investment while others remain data shadows.
+</p>
+<p style="text-align:center"><img src="images/11_Leadership/Leadership4.PNG" width="90%"></p>
+<p>
+  <strong>Why local leadership matters&nbsp;&mdash;</strong>  
+  When international funding stalls or shifts, frontline programmes feel the shock first:
+  stock-outs of ACTs, delayed IRS campaigns, frozen field salaries.  
+  That is exactly when <em>locally driven modelling and priority-setting</em> become critical.
+</p>
+
+<p>
+  A new <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(25)00805-0/abstract" target="_blank">
+  <em>Lancet</em> study by MAP </a> demonstrates this point: the team investigated the impact of no-PMI scenario on malaria burden and deaths in Africa. 
+  They found "PMI investment in supporting procurement and 
+  distribution of malaria control commodities would directly translate into millions of malaria cases averted and approximately 100 000 lives saved across its focus geographies in Africa throughout 2025."
+</p>
+
+<p style="text-align:center">
+  <img src="images/11_Leadership/Leadership5.PNG" width="90%"
+       alt="MAP pre-print slide showing funding-impact model">
+</p>
+
+<details>
+  <summary><strong>✨ Reflection: “Power Map”</strong></summary>
+  <p>
+    Sketch a simple map of <em>your</em> project’s power landscape:
+    donors, ministries, local communities, universities.  
+    Where can African voices take the driver’s seat, and what support (data,
+    mentoring, funding flexibility) is needed?
+  </p>
+</details>
+
+
+<!-- 4. Decision-making scenario -->
+<h2 id="decision">4&nbsp;|&nbsp;Decision-Making Scenario – From Maps&nbsp;&#x2192;&nbsp;Policy</h2>
+
+<p>
+  Imagine the National Malaria Control Programme just received
+  a grant to: <ol>
+    <li>Distribute <em>x</em> million ITNs,</li>
+    <li>Deploy community health workers (CHWs),</li>
+    <li>Target high-burden underserved areas.</li>
+  </ol>
+  Your task: craft a <strong>data-driven strategy</strong> that maximises impact
+  and equity &mdash; then defend it to a sceptical Minister.
+</p>
+
+<p style="text-align:center"><img src="images/11_Leadership/DecisionMaking.PNG" width="85%"></p>
+
+<p>
+  Teams received eight raster layers (PfPR, incidence, ITN use/access,
+  travel time, etc.).  Below are two example stacks; notice how the
+  <em>answer</em> changes if you weight incidence versus access:
+</p>
+
+<p style="text-align:center"><img src="images/11_Leadership/DecisionMaking2.PNG" width="95%"></p>
+<p>
+ The description of two activities:
+</p>
+<p style="text-align:center"><img src="images/11_Leadership/DecisionMaking3.PNG" width="92%"></p>
+
+<details>
+  <summary><strong>❓ Quick quiz (click to answer)</strong></summary>
+
+  <p><strong>Q1.</strong> Why might a Minister prefer incidence over PfPR?</p>
+  <details><summary>Show answer</summary>
+    <p>
+      Incidence (cases/1 000/year) reflects health-system burden and
+      budget impact this year. PfPR is transmission potential – better
+      for medium-term strategy.
+    </p>
+    <p style="text-align:center"><img src="images/11_Leadership/DecisionMaking4.PNG" width="92%"></p>
+  </details>
+
+  <p><strong>Q2.</strong> What map combo highlights <em>behaviour</em> barriers?</p>
+  <details><summary>Show answer</summary>
+    <p>
+      Compare ITN <em>use</em> with ITN <em>access</em>.  High access +
+      low use → behaviour change focus.
+    </p>
+    <p style="text-align:center"><img src="images/11_Leadership/DecisionMaking5.PNG" width="92%"></p>
+  </details>
+</details>
+<details>
+  <summary><strong>✨ Reflection: “Translate the Uncertainty”</strong></summary>
+  <p>
+    Pick one raster.  How would you explain its 95 % confidence layer to a
+    policymaker who distrusts “fuzzy science”?  
+    Draft one sentence that balances honesty with clarity.
+  </p>
+</details>
+
+
+<!-- 5. Working with others & conflict -->
+<h2 id="conflict">5&nbsp;|&nbsp;Working with Others &amp; Conflict Management</h2>
+
+<p>
+  Great leaders create psychological safety.  We staged hidden scenarios
+  (bullying, cliques, harassment) and debriefed <strong>ally actions</strong>.
+</p>
+
+<div class="row" style="margin-bottom:15px;">
+  <div class="col-sm-6">
+    <img src="images/11_Leadership/Conflic1.PNG" alt="Scenario 1" class="img-responsive">
+  </div>
+  <div class="col-sm-6">
+    <img src="images/11_Leadership/Conflic2.PNG" alt="Scenario 2" class="img-responsive">
+  </div>
+</div>
+
+<div class="row" style="margin-bottom:15px;">
+  <div class="col-sm-6">
+    <img src="images/11_Leadership/Conflic3.PNG" alt="Scenario 3" class="img-responsive">
+  </div>
+  <div class="col-sm-6">
+    <img src="images/11_Leadership/Conflic6.PNG" alt="Traits slide"  class="img-responsive">
+  </div>
+</div>
+
+<h3>Tools We Practised</h3>
+<p style="text-align:center"><img src="images/11_Leadership/Conflic4.PNG" width="90%"></p>
+<p style="text-align:center"><img src="images/11_Leadership/Conflic5.PNG" width="90%"></p>
+
+<details>
+  <summary><strong>✨ Reflection: “Say It in SBI”</strong></summary>
+  <p>
+    Think of a recent irritation (lateness, poor comms).  
+    Draft a 3-line SBI statement you could actually say next time.
+  </p>
+</details>
+
+<!-- 6. Take-aways -->
+<h2 id="takeaways">6&nbsp;|&nbsp;Key Take-Aways</h2>
+<ul>
+  <li>Leadership = behaviour × context × reflection.</li>
+  <li>Maps persuade only when uncertainty is translated into <em>decisions</em>.</li>
+  <li>Inclusivity is proactive: correct micro-dismissals <strong>in the moment</strong>.</li>
+  <li>Use structured feedback (SBI or DESC) to talk about tough stuff <em>early</em>.</li>
+</ul>
+
+<details>
+  <summary><strong>✨ Personal Commitment</strong></summary>
+  <p>Complete the sentence and share with your project team:<br>
+     <em>“This week I will practise leadership by&nbsp;… ”</em></p>
+</details>
+<!-- ============ END PAGE CONTENT ============ -->
+
+
+                    
+
+                    <h3>Recommended Resources</h3>
+                    <ul>
+                      <li><a href="https://toc.mel.cgiar.org/">Theory of Change Tools</a></li>
+                      <li>
+                        Diffusion of Innovation:
+                        <ul>
+                          <li><a href="https://www.sydle.com/blog/diffusion-of-innovation-61829eca3885651fa294b9e6">Overview</a></li>
+                          <li><a href="https://journals.sagepub.com/doi/10.1177/1049731509335569">Dearing et al. (2009)</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        Writing Guides:
+                        <ul>
+                          <li><a href="https://www.nature.com/articles/nature15535">Example Nature Paper</a></li>
+                          <li><a href="https://mrce.in/ebooks/Writing%20Guide%20for%20Scientists,%20Engineers%20&%20Students%202nd%20Ed.pdf">Writing Guide</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        Design Tools:
+                        <ul>
+                          <li><a href="https://lucid.app/">Lucidchart</a> for flowcharts</li>
+                          <li><a href="https://biorender.com/">BioRender</a> for scientific illustrations</li>
+                          <li><a href="https://www.marq.com/">Marq</a> for flyers and posters</li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                    <!-- END MODULE CONTENT -->
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+          // add bootstrap table styles to pandoc tables
+          function bootstrapStylePandocTables() {
+            $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+          }
+          $(document).ready(function () {
+            bootstrapStylePandocTables();
+          });
+        </script>
+        <!-- tabsets -->
+        <script>
+          $(document).ready(function () {
+            window.buildTabsets("TOC");
+          });
+
+          $(document).ready(function () {
+            $('.tabset-dropdown > .nav-tabs > li').click(function () {
+              $(this).parent().toggleClass('nav-tabs-open');
+            });
+          });
+        </script>
+        <!-- code folding -->
+        <script>
+          $(document).ready(function ()  {
+
+              // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+              $('.unlisted.unnumbered').addClass('toc-ignore')
+
+              // move toc-ignore selectors from section div to header
+              $('div.section.toc-ignore')
+                  .removeClass('toc-ignore')
+                  .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+              // establish options
+              var options = {
+                selectors: "h1,h2,h3,h4",
+                theme: "bootstrap3",
+                context: '.toc-content',
+                hashGenerator: function (text) {
+                  return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+                },
+                ignoreSelector: ".toc-ignore",
+                scrollTo: 0
+              };
+              options.showAndHide = true;
+              options.smoothScroll = true;
+
+              // tocify
+              var toc = $("#TOC").tocify(options).data("toc-tocify");
+          });
+        </script>
+        <!-- dynamically load mathjax for compatibility with self-contained -->
+        <script>
+          (function () {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+            document.getElementsByTagName("head")[0].appendChild(script);
+          })();
+        </script>
+    </body>
+</html>
